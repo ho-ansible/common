@@ -22,11 +22,12 @@
     - config
     - time
   timezone:
-    name: America/Vancouver
+    name: "{{ timezone }}"
 
 - name: common | generate locales
   tags:
     - config
     - locales
   locale_gen:
-    name: en_US.UTF-8
+    name: "{{ item }}"
+  with_items: locales
