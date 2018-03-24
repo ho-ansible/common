@@ -25,11 +25,3 @@
     - time
   timezone:
     name: "{{ timezone }}"
-
-- name: common | generate locales
-  tags:
-    - config
-    - locales
-  locale_gen:
-    name: "{{ item }}"
-  with_items: locales
