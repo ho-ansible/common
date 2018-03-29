@@ -19,6 +19,14 @@
   hostname:
     name: "{{ inventory_hostname }}"
 
+- name: common | /etc/hosts
+  tags:
+    - config
+    - hostname
+  template:
+    src: hosts.j2
+    name: /etc/hosts
+
 - name: common | set timezone
   tags:
     - config
