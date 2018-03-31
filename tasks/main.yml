@@ -25,7 +25,7 @@
     - hostname
   template:
     src: hosts.j2
-    name: /etc/hosts
+    dest: /etc/hosts
 
 - name: common | set timezone
   tags:
