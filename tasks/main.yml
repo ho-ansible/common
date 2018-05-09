@@ -19,6 +19,14 @@
   hostname:
     name: "{{ inventory_hostname }}"
 
+- name: common | set mailname
+  tags:
+    - config
+    - hostname
+  copy:
+    dest: /etc/mailname
+    content: "{{ ansible_fqdn }}"
+
 - name: common | /etc/hosts
   tags:
     - config
