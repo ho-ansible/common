@@ -1,4 +1,8 @@
 ---
 timezone: "America/Vancouver"
+
+# list of [<locale>, <charset>] pairs
+# chosen locales must exist in /usr/share/i18n/locales
+# first entry is set as system default
 locales:
-  - "en_US.UTF-8"
+  - ["en_US.UTF-8", "UTF-8"]

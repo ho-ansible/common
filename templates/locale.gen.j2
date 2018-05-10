@@ -1,0 +1,8 @@
+## /etc/locale.gen
+# all available locales: commented out
+# locales to generate: uncommented
+# {{ ansible_managed }}
+
+{% for item in locales %}
+{{ item[0] ~ ' ' ~ item[1] }}
+{% endfor %}
