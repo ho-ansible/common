@@ -12,7 +12,7 @@
     - locale
   locale_gen:
     name: "{{ item[0] }}"
-  with_items: "{{ locales }}"
+  loop: "{{ locales }}"
 
 - name: common | locale | default
   tags:
