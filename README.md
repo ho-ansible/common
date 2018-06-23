@@ -5,7 +5,11 @@ Miscellaneous setup for Linux servers
 Only tested on Debian stable, for now.
 
 ## Role Variables
-+ 
++ `timezone`: as string
++ `locales` (default: ["en_US.UTF-8", "UTF-8"]):
+  list of [<locale>, <charset>] pairs.
+  Chosen locales must exist in /usr/share/i18n/locales.
+  First entry is set as system default.
 
 ## Dependencies
 None
