@@ -17,7 +17,7 @@
     - config
     - hostname
   hostname:
-    name: "{{ inventory_hostname }}"
+    name: "{{ inventory_hostname ~ '.' ~ default_domain }}"
 
 - name: common | set mailname
   tags:
@@ -25,7 +25,7 @@
     - hostname
   copy:
     dest: /etc/mailname
-    content: "{{ ansible_fqdn }}"
+    content: "{{ inventory_hostname ~ '.' ~ default_domain }}"
 
 - name: common | /etc/hosts
   tags:
