@@ -1,6 +1,6 @@
 ## /etc/htoprc
 # monitor system load
-fields=0 48 2 46 47 38 40 113 111 49 1 
+fields=0 48 2 46 47 38 40 113 111 49 1
 sort_key=46
 sort_direction=1
 hide_threads=1
@@ -20,7 +20,8 @@ update_process_names=0
 account_guest_in_cpu_meter=0
 color_scheme=0
 delay=15
-left_meters=AllCPUs2
-left_meter_modes=1
-right_meters=Tasks Memory Swap LoadAverage Uptime 
-right_meter_modes=1 1 1 2 2 
+left_meters=Uptime LoadAverage LeftCPUs2
+left_meter_modes=2 2 1
+right_meters=Memory Swap RightCPUs2
+right_meter_modes=1 1 1
+
