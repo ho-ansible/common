@@ -8,6 +8,7 @@
     dest: "{{ item.dest }}"
   loop:
     - { src: vimrc, dest: /etc/vim/ }
+    - { src: gvimrc.local, dest: /etc/vim/ }
     - { src: htoprc, dest: /etc/ }
     - { src: 50unattended-upgrades, dest: /etc/apt/apt.conf.d/ }
     - { src: 71less.sh, dest: /etc/profile.d/ }
