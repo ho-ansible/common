@@ -3,4 +3,4 @@
 
 colorscheme torte
 set guioptions=aegirLt
-set guifont="Monospace Regular 11"
+set guifont=Liberation\ Mono\ Regular\ 11
