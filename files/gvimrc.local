@@ -1,5 +1,5 @@
-## /etc/vim/gvimrc.local
-# Site-specific config for VIM GUI
+" /etc/vim/gvimrc.local
+" Site-specific config for VIM GUI
 
 colorscheme torte
 set guioptions=aegirLt
