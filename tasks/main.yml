@@ -11,6 +11,7 @@
     - { src: gvimrc.local, dest: /etc/vim/ }
     - { src: htoprc, dest: /etc/ }
     - { src: 50unattended-upgrades, dest: /etc/apt/apt.conf.d/ }
+    - { src: 60recommends, dest: /etc/apt/apt.conf.d/ }
     - { src: 71less.sh, dest: /etc/profile.d/ }
 
 - name: common | set hostname
