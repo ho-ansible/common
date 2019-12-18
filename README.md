@@ -5,6 +5,7 @@ Miscellaneous setup for Linux servers
 Only tested on Debian stable, for now.
 
 ## Role Variables
++ `default_domain`: to set FQDN of host
 + `timezone`: as string
 + `locales` (default: ["en_US.UTF-8", "UTF-8"]):
   list of [<locale>, <charset>] pairs.
@@ -13,14 +14,6 @@ Only tested on Debian stable, for now.
 
 ## Dependencies
 None
-
-## Example Playbook
-
-```
-- hosts: all
-  roles:
-    - { role: ho-ansible.common }
-```
 
 ## License
 MIT

@@ -1,4 +1,5 @@
 ---
+default_domain: local
 timezone: "America/Vancouver"
 
 # list of [<locale>, <charset>] pairs
