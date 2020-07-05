@@ -45,4 +45,10 @@
   timezone:
     name: "{{ timezone }}"
 
-- import_tasks: locale.yml
+- name: common | set locale
+  tags:
+    - locale
+  copy:
+    dest: /etc/default/locale
+    content: "LANG={{ locale }}"
+
