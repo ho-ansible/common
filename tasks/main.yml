@@ -1,5 +1,16 @@
 ---
 
+- name: common | install packages
+  tags:
+    - package
+  package:
+    name:
+      - locales-all
+      - unattended-upgrades
+      - less
+      - vim
+      - htop
+
 - name: common | copy misc config
   tags:
     - config

@@ -1,5 +1,9 @@
 # Ansible role: common
-Miscellaneous setup for Linux servers
+Miscellaneous setup for Linux servers:
+
++ Install and configure less, vim, and htop
++ Set hostname, timezone, and locale
++ Configure apt auto-upgrade
 
 ## Requirements
 Only tested on Debian stable, for now.
