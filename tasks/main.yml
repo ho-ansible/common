@@ -25,8 +25,17 @@
     - { src: 60recommends, dest: /etc/apt/apt.conf.d/ }
     - { src: 71less.sh, dest: /etc/profile.d/ }
 
-- name: common | set hostname
+- name: common | vim packages
   tags:
+    - vim
+  git:
+    repo: "{{ item.repo }}"
+    dest: "/etc/vim/pack/{{ item.name }}/start/{{ item.name }}"
+    depth: 1
+  loop: "{{ vim_pkgs }}"
+
+- name: common | set hostname
+  tags: 
     - config
     - hostname
   hostname:

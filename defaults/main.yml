@@ -2,3 +2,4 @@
 default_domain: local
 timezone: "America/Vancouver"
 locale: "en_US.UTF-8"
+vim_pkgs: []
