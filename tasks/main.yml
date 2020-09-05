@@ -9,6 +9,7 @@
       - unattended-upgrades
       - less
       - vim
+      - git
       - htop
 
 - name: common | copy misc config
