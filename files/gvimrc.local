@@ -1,6 +1,0 @@
-" /etc/vim/gvimrc.local
-" Site-specific config for VIM GUI
-
-colorscheme torte
-set guioptions=aegirLt
-set guifont=Liberation\ Mono\ Regular\ 11
