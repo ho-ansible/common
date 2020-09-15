@@ -2,33 +2,33 @@
 
 - name: common | install packages
   tags:
-    - package
+  - package
   package:
     name:
-      - locales-all
-      - unattended-upgrades
-      - less
-      - vim
-      - git
-      - htop
+    - locales-all
+    - unattended-upgrades
+    - less
+    - vim
+    - git
+    - htop
 
 - name: common | copy misc config
   tags:
-    - config
+  - config
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
   loop:
-    - { src: vimrc, dest: /etc/vim/ }
-    - { src: gvimrc.local, dest: /etc/vim/ }
-    - { src: htoprc, dest: /etc/ }
-    - { src: 50unattended-upgrades, dest: /etc/apt/apt.conf.d/ }
-    - { src: 60recommends, dest: /etc/apt/apt.conf.d/ }
-    - { src: 71less.sh, dest: /etc/profile.d/ }
+  - { src: vimrc, dest: /etc/vim/ }
+  - { src: gvimrc.local, dest: /etc/vim/ }
+  - { src: htoprc, dest: /etc/ }
+  - { src: 50unattended-upgrades, dest: /etc/apt/apt.conf.d/ }
+  - { src: 60recommends, dest: /etc/apt/apt.conf.d/ }
+  - { src: 71less.sh, dest: /etc/profile.d/ }
 
 - name: common | vim packages
   tags:
-    - vim
+  - vim
   git:
     repo: "{{ item.repo }}"
     dest: "/etc/vim/pack/{{ item.name }}/start/{{ item.name }}"
@@ -37,38 +37,38 @@
 
 - name: common | set hostname
   tags: 
-    - config
-    - hostname
+  - config
+  - hostname
   hostname:
     name: "{{ inventory_hostname ~ '.' ~ default_domain }}"
   ignore_errors: yes
 
 - name: common | set mailname
   tags:
-    - config
-    - hostname
+  - config
+  - hostname
   copy:
     dest: /etc/mailname
     content: "{{ inventory_hostname ~ '.' ~ default_domain }}"
 
 - name: common | /etc/hosts
   tags:
-    - config
-    - hostname
+  - config
+  - hostname
   template:
     src: hosts.j2
     dest: /etc/hosts
 
 - name: common | set timezone
   tags:
-    - config
-    - time
+  - config
+  - time
   timezone:
     name: "{{ timezone }}"
 
 - name: common | set locale
   tags:
-    - locale
+  - locale
   copy:
     dest: /etc/default/locale
     content: "LANG={{ locale }}"
