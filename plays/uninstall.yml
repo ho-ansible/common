@@ -1,0 +1,12 @@
+#! /usr/bin/env ansible-playbook
+# Uninstall misc setup for Linux hosts
+# Replace 'all' with your own inventory group
+---
+- name: common | uninstall
+  hosts: all
+  tasks:
+  - include_role:
+      name: common
+      tasks_from: uninstall.yml
+    tags:
+    - common

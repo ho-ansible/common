@@ -1,0 +1,20 @@
+---
+
+- name: common | uninstall packages
+  tags:
+  - package
+  package:
+    name:
+    - unattended-upgrades
+    - htop
+
+- name: common | remove config
+  tags:
+  - config
+  file:
+    state: absent
+    path: "{{ item }}"
+  loop:
+  - /etc/apt/apt.conf.d/50unattended-upgrades
+  - /etc/apt/apt.conf.d/60recommends
+  - /etc/htoprc
