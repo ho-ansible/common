@@ -61,3 +61,19 @@
     dest: /etc/default/locale
     content: "LANG={{ locale }}"
 
+- name: common | add backports repo
+  tags:
+  - apt
+  apt_repository:
+    repo: "{{ backports_source }}"
+    filename: backports
+
+- name: common | backports kernel
+  tags:
+  - kernel
+  apt:
+    default_release: "{{ backports_rel }}"
+    name: linux-image-{{ arch }}
+    only_upgrade: yes
+  notify: restart networkd
+

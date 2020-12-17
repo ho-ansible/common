@@ -4,6 +4,7 @@ Miscellaneous setup for Linux servers:
 + Install and configure less, vim, and htop
 + Set hostname, timezone, and locale
 + Configure apt auto-upgrade
++ Upgrades kernel to backport
 
 ## Requirements
 Only tested on Debian stable, for now.
@@ -12,6 +13,7 @@ Only tested on Debian stable, for now.
 + `default_domain`: to set FQDN of host
 + `timezone`: as string
 + `locale` (default: `en_US.UTF-8`): system default `LANG`
++ `apt_repo` (default: Debian mirror autoselect): URL to package repository
 
 ## Playbooks
 + `main.yml`: apply role

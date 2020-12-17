@@ -18,3 +18,9 @@
   - /etc/apt/apt.conf.d/50unattended-upgrades
   - /etc/apt/apt.conf.d/60recommends
   - /etc/htoprc
+
+- name: common | remove backports repo
+  apt_repository:
+    repo: "{{ backports_source }}"
+    filename: backports
+    state: absent
