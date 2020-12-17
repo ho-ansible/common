@@ -1,4 +1,4 @@
 ---
-backports_rel: "{{ ansible_distribution_release }}-backports "
+backports_rel: "{{ ansible_distribution_release }}-backports"
 backports_source: deb {{ apt_repo }} {{ backports_rel }} main
 arch: "{{ ansible_architecture | extract({'x86_64': 'amd64'}) }}"
