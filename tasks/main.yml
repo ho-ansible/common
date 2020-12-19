@@ -74,5 +74,6 @@
   apt:
     default_release: "{{ backports_rel }}"
     name: linux-image-{{ arch }}
-  notify: restart networkd
+    state: latest
+    only_upgrade: yes
 
