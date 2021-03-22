@@ -67,6 +67,7 @@
   apt_repository:
     repo: "{{ backports_source }}"
     filename: backports
+  when: ansible_virtualization_type != 'openvz' 
 
 - name: common | backports kernel
   tags:
@@ -76,4 +77,5 @@
     name: linux-image-{{ arch }}
     state: latest
     only_upgrade: yes
+  when: ansible_virtualization_type != 'openvz' 
 

@@ -20,6 +20,8 @@
   - /etc/htoprc
 
 - name: common | remove backports repo
+  tags:
+  - apt
   apt_repository:
     repo: "{{ backports_source }}"
     filename: backports
