@@ -1,0 +1,14 @@
+---
+
+- name: common | kernel | backports repo
+  apt_repository:
+    repo: "{{ backports_source }}"
+    filename: backports
+
+- name: common | kernel | use backports kernel
+  apt:
+    default_release: "{{ backports_rel }}"
+    name: linux-image-{{ arch }}
+    state: latest
+    only_upgrade: yes
+

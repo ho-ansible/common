@@ -23,33 +23,8 @@
   - { src: 60recommends, dest: /etc/apt/apt.conf.d/ }
   - { src: 71less.sh, dest: /etc/profile.d/ }
 
-- name: common | set hostname
-  tags: 
-  - config
-  - hostname
-  hostname:
-    name: "{{ inventory_hostname ~ '.' ~ default_domain }}"
-  ignore_errors: yes
-
-- name: common | set mailname
-  tags:
-  - config
-  - hostname
-  copy:
-    dest: /etc/mailname
-    content: "{{ inventory_hostname ~ '.' ~ default_domain }}"
-
-- name: common | /etc/hosts
-  tags:
-  - config
-  - hostname
-  template:
-    src: hosts.j2
-    dest: /etc/hosts
-
 - name: common | set timezone
   tags:
-  - config
   - time
   timezone:
     name: "{{ timezone }}"
@@ -61,21 +36,12 @@
     dest: /etc/default/locale
     content: "LANG={{ locale }}"
 
-- name: common | add backports repo
-  tags:
-  - apt
-  apt_repository:
-    repo: "{{ backports_source }}"
-    filename: backports
-  when: ansible_virtualization_type != 'openvz' 
+- include_tasks: hostname.yml
+  tags: 
+  - hostname
 
-- name: common | backports kernel
-  tags:
+- include_tasks: kernel.yml
+  tags: 
   - kernel
-  apt:
-    default_release: "{{ backports_rel }}"
-    name: linux-image-{{ arch }}
-    state: latest
-    only_upgrade: yes
   when: ansible_virtualization_type != 'openvz' 
 
