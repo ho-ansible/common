@@ -7,7 +7,7 @@ Miscellaneous setup for Linux servers:
 + Upgrades kernel to backport
 
 ## Requirements
-Only tested on Debian stable, for now.
+Debian stable (buster, bullseye)
 
 ## Role Variables
 + `default_domain`: to set FQDN of host
