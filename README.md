@@ -5,6 +5,7 @@ Miscellaneous setup for Linux servers:
 + Set hostname, timezone, and locale
 + Configure apt auto-upgrade
 + Upgrades kernel to backport
++ Install initramfs-tools and provide handler to regenerate
 
 ## Requirements
 Debian stable (buster, bullseye)
@@ -14,6 +15,10 @@ Debian stable (buster, bullseye)
 + `timezone`: as string
 + `locale` (default: `en_US.UTF-8`): system default `LANG`
 + `apt_repo` (default: Debian mirror autoselect): URL to package repository
+
+## Handlers
++ `update initramfs`: regenerates the ram disk used by the kernel
+  to find the root filesystem during boot
 
 ## Playbooks
 + `main.yml`: apply role
