@@ -43,5 +43,5 @@
 - include_tasks: kernel.yml
   tags: 
   - kernel
-  when: ansible_virtualization_type != 'openvz' 
+  when: use_backports_kernel
 

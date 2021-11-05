@@ -4,17 +4,18 @@ Miscellaneous setup for Linux servers:
 + Install and configure less, vim, and htop
 + Set hostname, timezone, and locale
 + Configure apt auto-upgrade
-+ Upgrades kernel to backport
++ Upgrades kernel to backports (if desired)
 + Install initramfs-tools and provide handler to regenerate
 
 ## Requirements
-Debian stable (buster, bullseye)
+Debian buster, bullseye
 
 ## Role Variables
 + `default_domain`: to set FQDN of host
 + `timezone`: as string
 + `locale` (default: `en_US.UTF-8`): system default `LANG`
 + `apt_repo` (default: Debian mirror autoselect): URL to package repository
++ `use_backports_kernel` (default: false): install kernel from backports repo
 
 ## Handlers
 + `update initramfs`: regenerates the ram disk used by the kernel
