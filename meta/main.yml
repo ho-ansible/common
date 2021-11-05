@@ -9,7 +9,6 @@ galaxy_info:
   platforms:
   - name: Debian
     versions:
-    - stable
     - 10
     - 11
 
