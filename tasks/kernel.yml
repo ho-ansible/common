@@ -12,9 +12,3 @@
     state: latest
     only_upgrade: yes
 
-- name: common | kernel | initramfs package
-  tags:
-  - package
-  package:
-    name: initramfs-tools
-

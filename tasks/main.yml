@@ -45,3 +45,10 @@
   - kernel
   when: use_backports_kernel
 
+- name: common | initramfs package
+  tags:
+  - package
+  package:
+    name: initramfs-tools
+  when: ansible_virtualization_type != 'openvz' 
+
