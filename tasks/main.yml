@@ -50,5 +50,5 @@
   - package
   package:
     name: initramfs-tools
-  when: ansible_virtualization_type != 'openvz' 
+  when: ansible_virtualization_type != 'container' 
 
