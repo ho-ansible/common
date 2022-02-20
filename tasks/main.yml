@@ -22,6 +22,7 @@
   - { src: 50unattended-upgrades, dest: /etc/apt/apt.conf.d/ }
   - { src: 60recommends, dest: /etc/apt/apt.conf.d/ }
   - { src: 71less.sh, dest: /etc/profile.d/ }
+  - { src: 65-sdparm.rules, dest: /etc/udev/rules.d/ }
 
 - name: common | set timezone
   tags:
