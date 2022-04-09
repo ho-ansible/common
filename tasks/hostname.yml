@@ -1,14 +1,12 @@
 ---
 
 - name: common | hostname | set name
-  hostname:
-    name: "{{ inventory_hostname ~ '.' ~ default_domain }}"
-  ignore_errors: yes
-
-- name: common | hostname | set mailname
   copy:
-    dest: /etc/mailname
+    dest: /etc/{{ item }}
     content: "{{ inventory_hostname ~ '.' ~ default_domain }}"
+  loop:
+  - hostname
+  - mailname
 
 - name: common | hostname | /etc/hosts
   template:
