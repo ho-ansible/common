@@ -16,6 +16,8 @@ Debian buster, bullseye
 + `locale` (default: `en_US.UTF-8`): system default `LANG`
 + `apt_repo` (default: Debian mirror autoselect): URL to package repository
 + `use_backports_kernel` (default: false): install kernel from backports repo
++ `config_files`: dictionary of (filename, contents) pairs, for
+  arbitrary config files
 
 ## Handlers
 + `update initramfs`: regenerates the ram disk used by the kernel

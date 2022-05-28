@@ -24,6 +24,14 @@
   - { src: 71less.sh, dest: /etc/profile.d/ }
   - { src: 65-sdparm.rules, dest: /etc/udev/rules.d/ }
 
+- name: common | extra config
+  tags:
+  - config
+  copy:
+    dest: "{{ item.key }}"
+    content: "{{ item.value }}"
+  loop: "{{ config_files | dict2items }}"
+
 - name: common | set timezone
   tags:
   - time
