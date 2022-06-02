@@ -4,4 +4,4 @@ timezone: "America/Vancouver"
 locale: "en_US.UTF-8"
 apt_repo: "http://deb.debian.org/debian/"
 use_backports_kernel: false
-config_files:
+config_files: {}
