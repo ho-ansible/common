@@ -1,3 +1,0 @@
-# Enable HDD write cache
-ACTION=="add|change", KERNEL=="sd[a-z]", ATTRS{queue/rotational}=="1", RUN+="/usr/bin/sdparm -s WCE /dev/%k"
-

@@ -22,7 +22,15 @@
   - { src: 50unattended-upgrades, dest: /etc/apt/apt.conf.d/ }
   - { src: 60recommends, dest: /etc/apt/apt.conf.d/ }
   - { src: 71less.sh, dest: /etc/profile.d/ }
-  - { src: 65-sdparm.rules, dest: /etc/udev/rules.d/ }
+  - { src: 65-wce.rules, dest: /etc/udev/rules.d/ }
+
+- name: common | disable HDD write cache
+  tags:
+  - config
+  copy:
+    src: 65-wce.rules
+    dest: /etc/profile.d/
+  when: no_hdd_write_cache
 
 - name: common | extra config
   tags:
