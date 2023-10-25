@@ -4,6 +4,7 @@ Miscellaneous setup for Linux servers:
 + Install and configure less, vim, and htop
 + Set hostname, timezone, and locale
 + Configure apt auto-upgrade
++ Disable write-cache on HDDs
 + Upgrades kernel to backports (if desired)
 + Install initramfs-tools and provide handler to regenerate
 
@@ -18,6 +19,8 @@ Debian buster, bullseye
 + `use_backports_kernel` (default: false): install kernel from backports repo
 + `config_files`: dictionary of (filename, contents) pairs, for
   arbitrary config files
++ `no_hdd_write_cache` (default: false): set rotational SCSI drives to
+  write-through mode
 
 ## Handlers
 + `update initramfs`: regenerates the ram disk used by the kernel
