@@ -22,6 +22,7 @@
   - { src: 50unattended-upgrades, dest: /etc/apt/apt.conf.d/ }
   - { src: 60recommends, dest: /etc/apt/apt.conf.d/ }
   - { src: 71less.sh, dest: /etc/profile.d/ }
+  - { src: fstrim.service, dest: /etc/systemd/system/ }
 
 - name: common | disable HDD write cache
   tags:
