@@ -5,4 +5,5 @@ locale: "en_US.UTF-8"
 apt_repo: "http://deb.debian.org/debian/"
 use_backports_kernel: false
 config_files: {}
+fstrim_all: false
 no_hdd_write_cache: false

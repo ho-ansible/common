@@ -19,6 +19,8 @@ Debian buster, bullseye
 + `use_backports_kernel` (default: false): install kernel from backports repo
 + `config_files`: dictionary of (filename, contents) pairs, for
   arbitrary config files
++ `fstrim_all` (default: false): tweak `fstrim.service` to TRIM
+  all mounted filesystems, not just those in `/etc/fstab`
 + `no_hdd_write_cache` (default: false): set rotational SCSI drives to
   write-through mode
 
