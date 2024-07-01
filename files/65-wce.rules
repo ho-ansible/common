@@ -1,2 +1,2 @@
 # Enable HDD write cache
-ACTION=="add|change", SUBSYSTEM=="scsi_disk", ATTRS{queue/rotational}=="1", ATTR{cache_type}:="write through"
+ACTION=="add|change", SUBSYSTEM=="scsi_disk", ATTRS{queue/rotational}=="1", ATTR{cache_type}="write through"
