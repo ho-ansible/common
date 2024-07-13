@@ -1,0 +1,11 @@
+---
+
+- name: common | kernel module options
+  tags:
+    - kernel
+    - module
+  copy:
+    content: "options {{ item.key }} {{ item.value }}"
+    dest: "/etc/modprobe.d/{{ item.key }}.conf"
+  loop: "{{ modprobe_opts | dict2items }}"
+

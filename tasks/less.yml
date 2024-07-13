@@ -1,0 +1,9 @@
+---
+
+- name: common | less config
+  tags:
+  - config
+  copy:
+    src: 71less.sh
+    dest: /etc/profile.d/71less.sh
+

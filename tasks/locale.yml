@@ -1,0 +1,15 @@
+---
+
+- name: common | install locales
+  tags:
+  - package
+  package:
+    name: locales-all
+
+- name: common | set locale
+  tags:
+  - locale
+  copy:
+    dest: /etc/default/locale
+    content: "LANG={{ locale }}"
+

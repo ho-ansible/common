@@ -19,5 +19,6 @@
   - /etc/apt/apt.conf.d/60recommends
   - /etc/htoprc
   - /etc/profile.d/71less.sh
-  - /etc/udev/rules.d/65-wce.rules
   - /etc/apt/sources.list.d/backports.list
+  - /etc/systemd/system/fstrim.service
+  - /etc/udev/rules.d/65-wce.rules

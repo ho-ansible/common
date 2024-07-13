@@ -1,0 +1,15 @@
+---
+
+- name: common | install htop
+  tags:
+  - package
+  package:
+    name: htop
+
+- name: common | htop config
+  tags:
+  - config
+  copy:
+    src: htoprc
+    dest: /etc/htoprc
+

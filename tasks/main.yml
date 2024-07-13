@@ -1,31 +1,55 @@
 ---
 
-- name: common | install packages
+- include_tasks: hostname.yml
+  tags: 
+  - hostname
+
+- include_tasks: locale.yml
+  tags: 
+  - locale
+
+- name: common | set timezone
+  tags:
+  - time
+  timezone:
+    name: "{{ timezone }}"
+
+- include_tasks: apt.yml
+  tags: 
+  - apt
+  when: ansible_pkg_mgr == "apt"
+
+- include_tasks: less.yml
+  tags: 
+  - less
+
+- include_tasks: htop.yml
+  tags: 
+  - htop
+
+- include_tasks: kernel.yml
+  tags: 
+  - kernel
+  when: use_backports_kernel
+
+- include_tasks: modprobe.yml
+  tags: 
+  - kernel
+  - modprobe
+  when: modprobe_opts
+
+- name: common | initramfs package
   tags:
   - package
+  - initramfs
   package:
-    name:
-    - locales-all
-    - unattended-upgrades
-    - less
-    - git
-    - htop
-
-- name: common | copy misc config
-  tags:
-  - config
-  copy:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-  loop:
-  - { src: htoprc, dest: /etc/ }
-  - { src: 50unattended-upgrades, dest: /etc/apt/apt.conf.d/ }
-  - { src: 60recommends, dest: /etc/apt/apt.conf.d/ }
-  - { src: 71less.sh, dest: /etc/profile.d/ }
+    name: initramfs-tools
+  when: use_initramfs and ansible_virtualization_type != 'container' 
 
 - name: common | enable TRIM on all mounted fs
   tags:
   - config
+  - fstrim
   copy:
     src: fstrim.service
     dest: /etc/systemd/system/
@@ -34,45 +58,9 @@
 - name: common | disable HDD write cache
   tags:
   - config
+  - wce
   copy:
     src: 65-wce.rules
     dest: /etc/udev/rules.d/
   when: no_hdd_write_cache
-
-- name: common | extra config
-  tags:
-  - config
-  copy:
-    dest: "{{ item.key }}"
-    content: "{{ item.value }}"
-  loop: "{{ config_files | dict2items }}"
-
-- name: common | set timezone
-  tags:
-  - time
-  timezone:
-    name: "{{ timezone }}"
-
-- name: common | set locale
-  tags:
-  - locale
-  copy:
-    dest: /etc/default/locale
-    content: "LANG={{ locale }}"
-
-- include_tasks: hostname.yml
-  tags: 
-  - hostname
-
-- include_tasks: kernel.yml
-  tags: 
-  - kernel
-  when: use_backports_kernel
-
-- name: common | initramfs package
-  tags:
-  - package
-  package:
-    name: initramfs-tools
-  when: use_initramfs and ansible_virtualization_type != 'container' 
 
