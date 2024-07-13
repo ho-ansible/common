@@ -7,3 +7,4 @@ use_backports_kernel: false
 config_files: {}
 fstrim_all: false
 no_hdd_write_cache: false
+use_initramfs: false

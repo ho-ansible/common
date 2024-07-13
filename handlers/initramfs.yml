@@ -6,4 +6,4 @@
   - boot
   - kernel
   command: update-initramfs -u
-  when: ansible_virtualization_type != 'container' 
+  when: use_initramfs and ansible_virtualization_type != 'container' 

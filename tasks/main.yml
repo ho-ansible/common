@@ -74,5 +74,5 @@
   - package
   package:
     name: initramfs-tools
-  when: ansible_virtualization_type != 'container' 
+  when: use_initramfs and ansible_virtualization_type != 'container' 
 
