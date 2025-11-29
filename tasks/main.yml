@@ -36,7 +36,7 @@
   tags: 
   - kernel
   - modprobe
-  when: modprobe_opts
+  when: modprobe_opts | length == 0
 
 - name: common | initramfs package
   tags:
