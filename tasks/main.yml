@@ -23,10 +23,6 @@
   tags: 
   - less
 
-- include_tasks: htop.yml
-  tags: 
-  - htop
-
 - include_tasks: kernel.yml
   tags: 
   - kernel

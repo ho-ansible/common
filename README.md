@@ -1,7 +1,7 @@
 # Ansible role: common
 Miscellaneous setup for Linux servers:
 
-+ Install and configure **less**, **vim**, and **htop**
++ Install and configure **less**
 + Set **hostname**, **timezone**, and **locale**
 + Configure apt **auto-upgrade**
 + Disable **write-cache** on HDDs
