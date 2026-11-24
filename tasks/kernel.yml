@@ -1,14 +1,23 @@
 ---
 
 - name: common | kernel | backports repo
-  apt_repository:
-    repo: "{{ backports_source }}"
-    filename: backports
+  tags:
+  - kernel
+  deb822_repository:
+    name: backports
+    uris: "{{ apt_repo }}"
+    suites: "{{ backports_rel }}"
+    components:
+    - main
+    signed_by: /usr/share/keyrings/debian-archive-keyring.gpg
 
 - name: common | kernel | use backports kernel
+  tags:
+  - kernel
   apt:
     default_release: "{{ backports_rel }}"
     name: linux-image-{{ arch }}
     state: latest
     only_upgrade: yes
+    update_cache: yes
 
